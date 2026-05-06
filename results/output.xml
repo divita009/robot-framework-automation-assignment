@@ -1,0 +1,770 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.4 on win32)" generated="2026-05-06T22:50:45.158496" rpa="false" schemaversion="5">
+<suite id="s1" name="Google Search" source="C:\Users\divvarsh\Desktop\robot-framework-automation-assignment\tests\google_search.robot">
+<test id="s1-t1" name="Google Search And Save Top 5 Links" line="14">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-06T22:50:45.402661" level="INFO">Opening browser 'Chrome' to base url 'https://www.google.com'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-06T22:50:45.402333" elapsed="2.795246"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-06T22:50:48.198103" elapsed="0.108545"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-06T22:50:50.308662" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-06T22:50:48.307339" elapsed="2.001668"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-05-06T22:50:50.464686" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="step1_home.png"&gt;&lt;img src="step1_home.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${OUTPUT DIR}${/}step1_home.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-05-06T22:50:50.309999" elapsed="0.154857"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>name=q</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-06T22:50:50.465712" elapsed="0.044281"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-06T22:50:50.511271" level="INFO">Typing text 'robotframework' into text field 'name=q'.</msg>
+<arg>name=q</arg>
+<arg>${QUERY}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-06T22:50:50.510725" elapsed="0.233707"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2026-05-06T22:50:50.746431" level="INFO">Sending key(s) ('ENTER',) to name=q element.</msg>
+<msg time="2026-05-06T22:50:51.080354" level="INFO">Pressing special key ENTER to element.</msg>
+<msg time="2026-05-06T22:50:51.080605" level="INFO">Releasing special key ENTER.</msg>
+<arg>name=q</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2026-05-06T22:50:50.745368" elapsed="2.280583"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\nIf CAPTCHA appears, solve it manually within ${WAIT}...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-05-06T22:50:53.027694" elapsed="0.001473"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-06T22:51:07.030776" level="INFO">Slept 14 seconds.</msg>
+<arg>${WAIT}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-06T22:50:53.029586" elapsed="14.001436"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-05-06T22:51:08.558052" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="step2_after_wait.png"&gt;&lt;img src="step2_after_wait.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${OUTPUT DIR}${/}step2_after_wait.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-05-06T22:51:07.032024" elapsed="1.526404"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-05-06T22:51:08.560487" level="INFO">${outfile} = C:\Users\divvarsh\Desktop\robot-framework-automation-assignment\results\output.txt</msg>
+<var>${outfile}</var>
+<arg>${OUTPUT DIR}${/}output.txt</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.559498" elapsed="0.001078"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2026-05-06T22:51:08.563099" level="INFO" html="true">File '&lt;a href="file://C:\Users\divvarsh\Desktop\robot-framework-automation-assignment\results\output.txt"&gt;C:\Users\divvarsh\Desktop\robot-framework-automation-assignment\results\output.txt&lt;/a&gt;' does not exist.</msg>
+<arg>${outfile}</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.562303" elapsed="0.000948"/>
+</kw>
+<arg>Remove File</arg>
+<arg>${outfile}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.561295" elapsed="0.002163"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2026-05-06T22:51:08.566338" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\divvarsh\Desktop\robot-framework-automation-assignment\results\output.txt"&gt;C:\Users\divvarsh\Desktop\robot-framework-automation-assignment\results\output.txt&lt;/a&gt;'.</msg>
+<arg>${outfile}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.564029" elapsed="0.002479"/>
+</kw>
+<kw name="Get Top External Links">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2026-05-06T22:51:08.597842" level="INFO">${anchors} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="a56e5bca758f780e03de929d241953ff", element="f.085DADF0D56AEE6842CE79A14EC021A3.d.CDEE0C291C43424ABC45C57537B465DA.e.107")&gt;, &lt;selenium.webdri...</msg>
+<var>${anchors}</var>
+<arg>xpath=//div[@id="search"]//a[@href]</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.568539" elapsed="0.029413"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2026-05-06T22:51:08.599399" level="INFO">${final} = []</msg>
+<var>${final}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.598309" elapsed="0.001202"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2026-05-06T22:51:08.630127" level="INFO">${href} = https://robotframework.org/</msg>
+<var>${href}</var>
+<arg>${a}</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.600797" elapsed="0.029446"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Start With" owner="BuiltIn">
+<arg>${href}</arg>
+<arg>http</arg>
+<doc>Fails if the string ``str1`` does not start with the string ``str2``.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.631450" elapsed="0.000639"/>
+</kw>
+<msg time="2026-05-06T22:51:08.632316" level="INFO">${is_http} = True</msg>
+<var>${is_http}</var>
+<arg>Should Start With</arg>
+<arg>${href}</arg>
+<arg>http</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.630681" elapsed="0.001705"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${is_http}">
+<continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.632974" elapsed="0.000064"/>
+</continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.632619" elapsed="0.000510"/>
+</branch>
+<status status="PASS" start="2026-05-06T22:51:08.632549" elapsed="0.000666"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2026-05-06T22:51:08.635182" level="FAIL">'https://robotframework.org/' does not contain 'google.'</msg>
+<arg>${href}</arg>
+<arg>google.</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-05-06T22:51:08.634074" elapsed="0.001426">'https://robotframework.org/' does not contain 'google.'</status>
+</kw>
+<msg time="2026-05-06T22:51:08.635823" level="INFO">${is_google} = False</msg>
+<var>${is_google}</var>
+<arg>Should Contain</arg>
+<arg>${href}</arg>
+<arg>google.</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.633458" elapsed="0.002424"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_google}">
+<continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.636301" elapsed="0.000068"/>
+</continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.636094" elapsed="0.000361"/>
+</branch>
+<status status="PASS" start="2026-05-06T22:51:08.636042" elapsed="0.000496"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="List Should Contain Value" owner="Collections">
+<msg time="2026-05-06T22:51:08.638037" level="FAIL">[ ] does not contain value 'https://robotframework.org/'.</msg>
+<arg>${final}</arg>
+<arg>${href}</arg>
+<doc>Fails if the ``value`` is not found from ``list``.</doc>
+<status status="FAIL" start="2026-05-06T22:51:08.637327" elapsed="0.000885">[ ] does not contain value 'https://robotframework.org/'.</status>
+</kw>
+<msg time="2026-05-06T22:51:08.638451" level="INFO">${dup} = False</msg>
+<var>${dup}</var>
+<arg>List Should Contain Value</arg>
+<arg>${final}</arg>
+<arg>${href}</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.636748" elapsed="0.001759"/>
+</kw>
+<if>
+<branch type="IF" condition="${dup}">
+<continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.639324" elapsed="0.000065"/>
+</continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.638838" elapsed="0.000641"/>
+</branch>
+<status status="PASS" start="2026-05-06T22:51:08.638650" elapsed="0.000901"/>
+</if>
+<kw name="Append To List" owner="Collections">
+<arg>${final}</arg>
+<arg>${href}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.639732" elapsed="0.000551"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2026-05-06T22:51:08.642152" level="INFO">Length is 1.</msg>
+<msg time="2026-05-06T22:51:08.642381" level="INFO">${length} = 1</msg>
+<var>${length}</var>
+<arg>${final}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.640785" elapsed="0.001659"/>
+</kw>
+<kw name="Exit For Loop If" owner="BuiltIn">
+<arg>${length} &gt;= ${max}</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.642721" elapsed="0.000915"/>
+</kw>
+<var name="${a}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a56e5bca758f780e03de929d241953ff", element="f.085DADF0D56AEE6842CE79A14EC021A3.d.CDEE0C291C43424ABC45C57537B465DA.e.107")&gt;</var>
+<status status="PASS" start="2026-05-06T22:51:08.600510" elapsed="0.043246"/>
+</iter>
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2026-05-06T22:51:08.667937" level="INFO">${href} = https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html</msg>
+<var>${href}</var>
+<arg>${a}</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.644629" elapsed="0.023414"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Start With" owner="BuiltIn">
+<arg>${href}</arg>
+<arg>http</arg>
+<doc>Fails if the string ``str1`` does not start with the string ``str2``.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.669168" elapsed="0.000607"/>
+</kw>
+<msg time="2026-05-06T22:51:08.669991" level="INFO">${is_http} = True</msg>
+<var>${is_http}</var>
+<arg>Should Start With</arg>
+<arg>${href}</arg>
+<arg>http</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.668433" elapsed="0.001615"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${is_http}">
+<continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.670549" elapsed="0.000053"/>
+</continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.670247" elapsed="0.000438"/>
+</branch>
+<status status="PASS" start="2026-05-06T22:51:08.670199" elapsed="0.000562"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2026-05-06T22:51:08.672151" level="FAIL">'https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html' does not contain 'google.'</msg>
+<arg>${href}</arg>
+<arg>google.</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-05-06T22:51:08.671500" elapsed="0.000825">'https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html' does not contain 'google.'</status>
+</kw>
+<msg time="2026-05-06T22:51:08.673017" level="INFO">${is_google} = False</msg>
+<var>${is_google}</var>
+<arg>Should Contain</arg>
+<arg>${href}</arg>
+<arg>google.</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.670951" elapsed="0.002175"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_google}">
+<continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.673754" elapsed="0.000072"/>
+</continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.673436" elapsed="0.000492"/>
+</branch>
+<status status="PASS" start="2026-05-06T22:51:08.673376" elapsed="0.000641"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="List Should Contain Value" owner="Collections">
+<msg time="2026-05-06T22:51:08.675818" level="FAIL">[ https://robotframework.org/ ] does not contain value 'https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html'.</msg>
+<arg>${final}</arg>
+<arg>${href}</arg>
+<doc>Fails if the ``value`` is not found from ``list``.</doc>
+<status status="FAIL" start="2026-05-06T22:51:08.675115" elapsed="0.000988">[ https://robotframework.org/ ] does not contain value 'https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html'.</status>
+</kw>
+<msg time="2026-05-06T22:51:08.676397" level="INFO">${dup} = False</msg>
+<var>${dup}</var>
+<arg>List Should Contain Value</arg>
+<arg>${final}</arg>
+<arg>${href}</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.674286" elapsed="0.002171"/>
+</kw>
+<if>
+<branch type="IF" condition="${dup}">
+<continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.676892" elapsed="0.000057"/>
+</continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.676697" elapsed="0.000518"/>
+</branch>
+<status status="PASS" start="2026-05-06T22:51:08.676651" elapsed="0.000645"/>
+</if>
+<kw name="Append To List" owner="Collections">
+<arg>${final}</arg>
+<arg>${href}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.677497" elapsed="0.000444"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2026-05-06T22:51:08.678739" level="INFO">Length is 2.</msg>
+<msg time="2026-05-06T22:51:08.678902" level="INFO">${length} = 2</msg>
+<var>${length}</var>
+<arg>${final}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.678174" elapsed="0.000792"/>
+</kw>
+<kw name="Exit For Loop If" owner="BuiltIn">
+<arg>${length} &gt;= ${max}</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.679180" elapsed="0.000776"/>
+</kw>
+<var name="${a}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a56e5bca758f780e03de929d241953ff", element="f.085DADF0D56AEE6842CE79A14EC021A3.d.CDEE0C291C43424ABC45C57537B465DA.e.108")&gt;</var>
+<status status="PASS" start="2026-05-06T22:51:08.644384" elapsed="0.035682"/>
+</iter>
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2026-05-06T22:51:08.693786" level="INFO">${href} = https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html</msg>
+<var>${href}</var>
+<arg>${a}</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.680869" elapsed="0.013070"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Start With" owner="BuiltIn">
+<arg>${href}</arg>
+<arg>http</arg>
+<doc>Fails if the string ``str1`` does not start with the string ``str2``.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.695388" elapsed="0.000791"/>
+</kw>
+<msg time="2026-05-06T22:51:08.696459" level="INFO">${is_http} = True</msg>
+<var>${is_http}</var>
+<arg>Should Start With</arg>
+<arg>${href}</arg>
+<arg>http</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.694471" elapsed="0.002045"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${is_http}">
+<continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.697102" elapsed="0.000057"/>
+</continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.696727" elapsed="0.000521"/>
+</branch>
+<status status="PASS" start="2026-05-06T22:51:08.696677" elapsed="0.000653"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2026-05-06T22:51:08.698953" level="FAIL">'https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html' does not contain 'google.'</msg>
+<arg>${href}</arg>
+<arg>google.</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-05-06T22:51:08.698230" elapsed="0.000921">'https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html' does not contain 'google.'</status>
+</kw>
+<msg time="2026-05-06T22:51:08.699397" level="INFO">${is_google} = False</msg>
+<var>${is_google}</var>
+<arg>Should Contain</arg>
+<arg>${href}</arg>
+<arg>google.</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.697562" elapsed="0.001892"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_google}">
+<continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.699832" elapsed="0.000049"/>
+</continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.699652" elapsed="0.000305"/>
+</branch>
+<status status="PASS" start="2026-05-06T22:51:08.699608" elapsed="0.000414"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="List Should Contain Value" owner="Collections">
+<msg time="2026-05-06T22:51:08.701304" level="FAIL">[ https://robotframework.org/ | https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html ] does not contain value 'https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html'.</msg>
+<arg>${final}</arg>
+<arg>${href}</arg>
+<doc>Fails if the ``value`` is not found from ``list``.</doc>
+<status status="FAIL" start="2026-05-06T22:51:08.700787" elapsed="0.000664">[ https://robotframework.org/ | https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html ] does not contain value 'https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html'.</status>
+</kw>
+<msg time="2026-05-06T22:51:08.701661" level="INFO">${dup} = False</msg>
+<var>${dup}</var>
+<arg>List Should Contain Value</arg>
+<arg>${final}</arg>
+<arg>${href}</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.700205" elapsed="0.001522"/>
+</kw>
+<if>
+<branch type="IF" condition="${dup}">
+<continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.702075" elapsed="0.000049"/>
+</continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.701907" elapsed="0.000293"/>
+</branch>
+<status status="PASS" start="2026-05-06T22:51:08.701869" elapsed="0.000402"/>
+</if>
+<kw name="Append To List" owner="Collections">
+<arg>${final}</arg>
+<arg>${href}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.702435" elapsed="0.000360"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2026-05-06T22:51:08.703503" level="INFO">Length is 3.</msg>
+<msg time="2026-05-06T22:51:08.703650" level="INFO">${length} = 3</msg>
+<var>${length}</var>
+<arg>${final}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.703002" elapsed="0.000702"/>
+</kw>
+<kw name="Exit For Loop If" owner="BuiltIn">
+<arg>${length} &gt;= ${max}</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.703908" elapsed="0.000723"/>
+</kw>
+<var name="${a}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a56e5bca758f780e03de929d241953ff", element="f.085DADF0D56AEE6842CE79A14EC021A3.d.CDEE0C291C43424ABC45C57537B465DA.e.109")&gt;</var>
+<status status="PASS" start="2026-05-06T22:51:08.680669" elapsed="0.024067"/>
+</iter>
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2026-05-06T22:51:08.717113" level="INFO">${href} = https://robotframework.org/robotframework/latest/libraries/BuiltIn.html</msg>
+<var>${href}</var>
+<arg>${a}</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.705682" elapsed="0.011545"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Start With" owner="BuiltIn">
+<arg>${href}</arg>
+<arg>http</arg>
+<doc>Fails if the string ``str1`` does not start with the string ``str2``.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.718427" elapsed="0.000798"/>
+</kw>
+<msg time="2026-05-06T22:51:08.719464" level="INFO">${is_http} = True</msg>
+<var>${is_http}</var>
+<arg>Should Start With</arg>
+<arg>${href}</arg>
+<arg>http</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.717659" elapsed="0.001864"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${is_http}">
+<continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.720075" elapsed="0.000059"/>
+</continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.719745" elapsed="0.000475"/>
+</branch>
+<status status="PASS" start="2026-05-06T22:51:08.719695" elapsed="0.000614"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2026-05-06T22:51:08.721992" level="FAIL">'https://robotframework.org/robotframework/latest/libraries/BuiltIn.html' does not contain 'google.'</msg>
+<arg>${href}</arg>
+<arg>google.</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-05-06T22:51:08.721135" elapsed="0.001069">'https://robotframework.org/robotframework/latest/libraries/BuiltIn.html' does not contain 'google.'</status>
+</kw>
+<msg time="2026-05-06T22:51:08.722459" level="INFO">${is_google} = False</msg>
+<var>${is_google}</var>
+<arg>Should Contain</arg>
+<arg>${href}</arg>
+<arg>google.</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.720530" elapsed="0.001977"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_google}">
+<continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.722926" elapsed="0.000061"/>
+</continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.722734" elapsed="0.000331"/>
+</branch>
+<status status="PASS" start="2026-05-06T22:51:08.722686" elapsed="0.000454"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="List Should Contain Value" owner="Collections">
+<msg time="2026-05-06T22:51:08.724537" level="FAIL">[ https://robotframework.org/ | https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html | https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html ] does not contain value 'https://robotframework.org/robotframework/latest/libraries/BuiltIn.html'.</msg>
+<arg>${final}</arg>
+<arg>${href}</arg>
+<doc>Fails if the ``value`` is not found from ``list``.</doc>
+<status status="FAIL" start="2026-05-06T22:51:08.723995" elapsed="0.000766">[ https://robotframework.org/ | https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html | https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html ] does not contain value 'https://robotframework.org/robotframework/latest/libraries/BuiltIn.html'.</status>
+</kw>
+<msg time="2026-05-06T22:51:08.724981" level="INFO">${dup} = False</msg>
+<var>${dup}</var>
+<arg>List Should Contain Value</arg>
+<arg>${final}</arg>
+<arg>${href}</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.723359" elapsed="0.001675"/>
+</kw>
+<if>
+<branch type="IF" condition="${dup}">
+<continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.725363" elapsed="0.000045"/>
+</continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.725204" elapsed="0.000281"/>
+</branch>
+<status status="PASS" start="2026-05-06T22:51:08.725168" elapsed="0.000390"/>
+</if>
+<kw name="Append To List" owner="Collections">
+<arg>${final}</arg>
+<arg>${href}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.725742" elapsed="0.000363"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2026-05-06T22:51:08.726835" level="INFO">Length is 4.</msg>
+<msg time="2026-05-06T22:51:08.726987" level="INFO">${length} = 4</msg>
+<var>${length}</var>
+<arg>${final}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.726316" elapsed="0.000725"/>
+</kw>
+<kw name="Exit For Loop If" owner="BuiltIn">
+<arg>${length} &gt;= ${max}</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.727245" elapsed="0.000763"/>
+</kw>
+<var name="${a}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a56e5bca758f780e03de929d241953ff", element="f.085DADF0D56AEE6842CE79A14EC021A3.d.CDEE0C291C43424ABC45C57537B465DA.e.110")&gt;</var>
+<status status="PASS" start="2026-05-06T22:51:08.705278" elapsed="0.022837"/>
+</iter>
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2026-05-06T22:51:08.742389" level="INFO">${href} = https://docs.robotframework.org/docs</msg>
+<var>${href}</var>
+<arg>${a}</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.728866" elapsed="0.013649"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Start With" owner="BuiltIn">
+<arg>${href}</arg>
+<arg>http</arg>
+<doc>Fails if the string ``str1`` does not start with the string ``str2``.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.743801" elapsed="0.000577"/>
+</kw>
+<msg time="2026-05-06T22:51:08.744587" level="INFO">${is_http} = True</msg>
+<var>${is_http}</var>
+<arg>Should Start With</arg>
+<arg>${href}</arg>
+<arg>http</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.742985" elapsed="0.001659"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${is_http}">
+<continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.745119" elapsed="0.000056"/>
+</continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.744832" elapsed="0.000423"/>
+</branch>
+<status status="PASS" start="2026-05-06T22:51:08.744789" elapsed="0.000541"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2026-05-06T22:51:08.746705" level="FAIL">'https://docs.robotframework.org/docs' does not contain 'google.'</msg>
+<arg>${href}</arg>
+<arg>google.</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-05-06T22:51:08.746066" elapsed="0.000805">'https://docs.robotframework.org/docs' does not contain 'google.'</status>
+</kw>
+<msg time="2026-05-06T22:51:08.747090" level="INFO">${is_google} = False</msg>
+<var>${is_google}</var>
+<arg>Should Contain</arg>
+<arg>${href}</arg>
+<arg>google.</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.745519" elapsed="0.001626"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_google}">
+<continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.747486" elapsed="0.000047"/>
+</continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.747320" elapsed="0.000285"/>
+</branch>
+<status status="PASS" start="2026-05-06T22:51:08.747280" elapsed="0.000402"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="List Should Contain Value" owner="Collections">
+<msg time="2026-05-06T22:51:08.748891" level="FAIL">[ https://robotframework.org/ | https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html | https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html | https://robotframework.org/robotframework/latest/libraries/BuiltIn.html ] does not contain value 'https://docs.robotframework.org/docs'.</msg>
+<arg>${final}</arg>
+<arg>${href}</arg>
+<doc>Fails if the ``value`` is not found from ``list``.</doc>
+<status status="FAIL" start="2026-05-06T22:51:08.748420" elapsed="0.000597">[ https://robotframework.org/ | https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html | https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html | https://robotframework.org/robotframework/latest/libraries/BuiltIn.html ] does not contain value 'https://docs.robotframework.org/docs'.</status>
+</kw>
+<msg time="2026-05-06T22:51:08.749385" level="INFO">${dup} = False</msg>
+<var>${dup}</var>
+<arg>List Should Contain Value</arg>
+<arg>${final}</arg>
+<arg>${href}</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.747874" elapsed="0.001625"/>
+</kw>
+<if>
+<branch type="IF" condition="${dup}">
+<continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.749958" elapsed="0.000053"/>
+</continue>
+<status status="NOT RUN" start="2026-05-06T22:51:08.749750" elapsed="0.000343"/>
+</branch>
+<status status="PASS" start="2026-05-06T22:51:08.749699" elapsed="0.000490"/>
+</if>
+<kw name="Append To List" owner="Collections">
+<arg>${final}</arg>
+<arg>${href}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.750398" elapsed="0.000476"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2026-05-06T22:51:08.751745" level="INFO">Length is 5.</msg>
+<msg time="2026-05-06T22:51:08.751916" level="INFO">${length} = 5</msg>
+<var>${length}</var>
+<arg>${final}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.751115" elapsed="0.000858"/>
+</kw>
+<kw name="Exit For Loop If" owner="BuiltIn">
+<msg time="2026-05-06T22:51:08.753014" level="INFO">Exiting for loop altogether.</msg>
+<arg>${length} &gt;= ${max}</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.752222" elapsed="0.001034"/>
+</kw>
+<var name="${a}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a56e5bca758f780e03de929d241953ff", element="f.085DADF0D56AEE6842CE79A14EC021A3.d.CDEE0C291C43424ABC45C57537B465DA.e.111")&gt;</var>
+<status status="PASS" start="2026-05-06T22:51:08.728667" elapsed="0.024724"/>
+</iter>
+<var>${a}</var>
+<value>@{anchors}</value>
+<status status="PASS" start="2026-05-06T22:51:08.599747" elapsed="0.153786"/>
+</for>
+<return>
+<value>${final}</value>
+<status status="PASS" start="2026-05-06T22:51:08.753731" elapsed="0.000109"/>
+</return>
+<msg time="2026-05-06T22:51:08.754231" level="INFO">${toplinks} = ['https://robotframework.org/', 'https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html', 'https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html', 'https://robotframew...</msg>
+<var>${toplinks}</var>
+<arg>${MAX}</arg>
+<status status="PASS" start="2026-05-06T22:51:08.567739" elapsed="0.186620"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\nTop ${MAX} Google Links:\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.755118" elapsed="0.002833"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2026-05-06T22:51:08.761851" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\divvarsh\Desktop\robot-framework-automation-assignment\results\output.txt"&gt;C:\Users\divvarsh\Desktop\robot-framework-automation-assignment\results\output.txt&lt;/a&gt;'.</msg>
+<arg>${outfile}</arg>
+<arg>Top ${MAX} Google Links:\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.758519" elapsed="0.003549"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${link}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.763870" elapsed="0.005988"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2026-05-06T22:51:08.773396" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\divvarsh\Desktop\robot-framework-automation-assignment\results\output.txt"&gt;C:\Users\divvarsh\Desktop\robot-framework-automation-assignment\results\output.txt&lt;/a&gt;'.</msg>
+<arg>${outfile}</arg>
+<arg>${link}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.770194" elapsed="0.003493"/>
+</kw>
+<var name="${link}">https://robotframework.org/</var>
+<status status="PASS" start="2026-05-06T22:51:08.763655" elapsed="0.010437"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${link}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.774939" elapsed="0.001740"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2026-05-06T22:51:08.780232" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\divvarsh\Desktop\robot-framework-automation-assignment\results\output.txt"&gt;C:\Users\divvarsh\Desktop\robot-framework-automation-assignment\results\output.txt&lt;/a&gt;'.</msg>
+<arg>${outfile}</arg>
+<arg>${link}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.777137" elapsed="0.003339"/>
+</kw>
+<var name="${link}">https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html</var>
+<status status="PASS" start="2026-05-06T22:51:08.774613" elapsed="0.006007"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${link}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.781163" elapsed="0.001857"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2026-05-06T22:51:08.788076" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\divvarsh\Desktop\robot-framework-automation-assignment\results\output.txt"&gt;C:\Users\divvarsh\Desktop\robot-framework-automation-assignment\results\output.txt&lt;/a&gt;'.</msg>
+<arg>${outfile}</arg>
+<arg>${link}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.783392" elapsed="0.005055"/>
+</kw>
+<var name="${link}">https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html</var>
+<status status="PASS" start="2026-05-06T22:51:08.780921" elapsed="0.007733"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${link}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.790143" elapsed="0.002586"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2026-05-06T22:51:08.797153" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\divvarsh\Desktop\robot-framework-automation-assignment\results\output.txt"&gt;C:\Users\divvarsh\Desktop\robot-framework-automation-assignment\results\output.txt&lt;/a&gt;'.</msg>
+<arg>${outfile}</arg>
+<arg>${link}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.793131" elapsed="0.004298"/>
+</kw>
+<var name="${link}">https://robotframework.org/robotframework/latest/libraries/BuiltIn.html</var>
+<status status="PASS" start="2026-05-06T22:51:08.789627" elapsed="0.007963"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${link}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.798169" elapsed="0.001910"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2026-05-06T22:51:08.804389" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\divvarsh\Desktop\robot-framework-automation-assignment\results\output.txt"&gt;C:\Users\divvarsh\Desktop\robot-framework-automation-assignment\results\output.txt&lt;/a&gt;'.</msg>
+<arg>${outfile}</arg>
+<arg>${link}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.800693" elapsed="0.003941"/>
+</kw>
+<var name="${link}">https://docs.robotframework.org/docs</var>
+<status status="PASS" start="2026-05-06T22:51:08.797919" elapsed="0.006896"/>
+</iter>
+<var>${link}</var>
+<value>@{toplinks}</value>
+<status status="PASS" start="2026-05-06T22:51:08.763172" elapsed="0.041773"/>
+</for>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-05-06T22:51:08.918811" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="step3_final.png"&gt;&lt;img src="step3_final.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${OUTPUT DIR}${/}step3_final.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.806132" elapsed="0.112862"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-05-06T22:51:08.919668" elapsed="2.638649"/>
+</kw>
+<status status="PASS" start="2026-05-06T22:50:45.401143" elapsed="26.158643"/>
+</test>
+<status status="PASS" start="2026-05-06T22:50:45.160650" elapsed="26.404694"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Google Search" id="s1" pass="1" fail="0" skip="0">Google Search</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2026-05-06T22:50:45.153482" level="WARN">Error in file 'C:\Users\divvarsh\Desktop\robot-framework-automation-assignment\tests\google_search.robot' on line 84: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+</errors>
+</robot>
