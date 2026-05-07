@@ -2,6 +2,7 @@
 Library    SeleniumLibrary
 Library    OperatingSystem
 Library    Collections
+Library    String
 
 *** Variables ***
 ${URL}        https://www.google.com
@@ -32,11 +33,17 @@ Google Search And Save Top 5 Links
     Run Keyword And Ignore Error    Remove File    ${outfile}
     Create File    ${outfile}
 
-    # Collect top 5 external links
-    ${toplinks}=    Get Top External Links    ${MAX}
+    # STRICT CHECK: If results are not visible after waiting, FAIL
+    Ensure Results Loaded Or Fail    ${outfile}
 
-    Log To Console    \nTop ${MAX} Google Links:\n
-    Append To File    ${outfile}    Top ${MAX} Google Links:\n
+    # Collect top 5 main result links (unique by domain)
+    ${toplinks}=    Get Top Result Links Unique By Domain    ${MAX}
+
+    ${count}=    Get Length    ${toplinks}
+    Run Keyword If    ${count} == 0    Fail    Results page loaded but no links were captured.
+
+    Log To Console    \nTop ${MAX} Google Result Links (Unique Domains):\n
+    Append To File    ${outfile}    Top ${MAX} Google Result Links (Unique Domains):\n
 
     FOR    ${link}    IN    @{toplinks}
         Log To Console    ${link}
@@ -47,38 +54,53 @@ Google Search And Save Top 5 Links
     Close Browser
 
 *** Keywords ***
-Get Top External Links
+Ensure Results Loaded Or Fail
+    [Arguments]    ${outfile}
+
+    ${ok}=    Run Keyword And Return Status
+    ...    Wait Until Page Contains Element    xpath=//div[@id="search"]//a[h3 and @href]    10s
+
+    IF    not ${ok}
+        Capture Page Screenshot    ${OUTPUT DIR}${/}step_captcha_or_block.png
+        Append To File    ${outfile}    CAPTCHA not solved or results did not load. Check screenshot: step_captcha_or_block.png\n
+        Close Browser
+        Fail    CAPTCHA not solved / results not loaded (failing as required).
+    END
+
+Get Top Result Links Unique By Domain
     [Arguments]    ${max}
 
-    # anchors in search results area
-    ${anchors}=    Get WebElements    xpath=//div[@id="search"]//a[@href]
-    ${final}=      Create List
+    ${result_links}=    Get WebElements    xpath=//div[@id="search"]//a[h3 and @href]
 
-    FOR    ${a}    IN    @{anchors}
+    ${final}=      Create List
+    ${domains}=    Create List
+
+    FOR    ${a}    IN    @{result_links}
         ${href}=    Get Element Attribute    ${a}    href
 
-        # Keep only real web links
         ${is_http}=    Run Keyword And Return Status    Should Start With    ${href}    http
         IF    not ${is_http}
             CONTINUE
         END
 
-        # Skip Google internal links (search, accounts, etc.)
         ${is_google}=    Run Keyword And Return Status    Should Contain    ${href}    google.
         IF    ${is_google}
             CONTINUE
         END
 
-        # Avoid duplicates
-        ${dup}=    Run Keyword And Return Status    List Should Contain Value    ${final}    ${href}
-        IF    ${dup}
+        ${domain}=    Evaluate    __import__("urllib.parse", fromlist=["urlparse"]).urlparse($href).netloc
+        ${domain}=    Replace String    ${domain}    www.    ${EMPTY}
+
+        ${dup_domain}=    Run Keyword And Return Status    List Should Contain Value    ${domains}    ${domain}
+        IF    ${dup_domain}
             CONTINUE
         END
 
-        Append To List    ${final}    ${href}
+        Append To List    ${domains}    ${domain}
+        Append To List    ${final}      ${href}
 
         ${length}=    Get Length    ${final}
         Exit For Loop If    ${length} >= ${max}
     END
 
-    [Return]    ${final}
+    RETURN    ${final}

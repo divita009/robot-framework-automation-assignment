@@ -1,6 +1,6 @@
-Top 5 Google Links:
+Top 5 Google Result Links (Unique Domains):
 https://robotframework.org/
-https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html
-https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html
-https://robotframework.org/robotframework/latest/libraries/BuiltIn.html
-https://docs.robotframework.org/docs
+https://github.com/robotframework/robotframework
+https://testrigor.com/blog/robot-framework/#:~:text=Open%20Source%20and%20Free%3A%20Robot,free%20to%20use%20and%20modify%20.
+https://testsigma.com/blog/robot-framework-vs-selenium/#:~:text=Robot%20Framework%20and%20Selenium%20are,set%20up%20the%20framework%20work.
+https://www.jetir.org/view?paper=JETIR2307150#:~:text=Ansible%20addresses%20the%20challenges%20of,device%20connections%20and%20validation%20tasks.
