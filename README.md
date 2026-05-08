@@ -2,17 +2,20 @@
 
 ## 📌 Objective
 
-Automate a Google search using Robot Framework and Selenium. Extract top 4–5 results for **"robotframework"**, print them to console, and save to a file.
+Automate a Google search using **Robot Framework** and **SeleniumLibrary**.
+The automation script searches for **"robotframework"**, extracts the top 4–5 search results, prints them to the console, and saves them to a text file.
 
 ---
 
 ## 🚀 Features
 
-* Opens Google and performs search
-* Extracts top results
+* Opens Google in browser
+* Searches for **"robotframework"**
+* Extracts top search result links
 * Prints results to console
-* Saves results to `output.txt`
-* Captures execution screenshots
+* Saves results to `results/output.txt`
+* Captures screenshots during execution
+* Generates Robot Framework execution reports
 
 ---
 
@@ -24,48 +27,111 @@ Automate a Google search using Robot Framework and Selenium. Extract top 4–5 r
 
 ---
 
-## 📂 Project Structure
+# ⚙️ Environment Setup
 
-```
-robot-framework-automation-assignment/
-│
-├── tests/google_search.robot
-├── results/
-│   ├── output.txt
-│   ├── log.html
-│   ├── report.html
-│   ├── output.xml
-│   └── screenshots/
-├── README.md
-└── .gitignore
+## 1️⃣ Create Virtual Environment (One-Time Setup)
+
+```bash
+python -m venv venv
 ```
 
 ---
 
-## ▶️ Run the Test
+## 2️⃣ Activate Virtual Environment
+
+> ⚠️ Important: Activate the virtual environment every time you open a new terminal.
+
+### Windows
 
 ```bash
-pip install robotframework robotframework-seleniumlibrary
+venv\Scripts\activate
+```
+
+---
+
+## 3️⃣ Install Required Dependencies
+
+### Install Robot Framework
+
+```bash
+pip install robotframework
+```
+
+### Install SeleniumLibrary
+
+```bash
+pip install robotframework-seleniumlibrary
+```
+
+### (Optional) Install all dependencies from requirements.txt
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# ▶️ Execute the Test
+
+Run the following command after activating the virtual environment:
+
+```bash
 python -m robot -d results tests/google_search.robot
 ```
 
 ---
 
-## 📸 Output
+# 📸 Output
 
-* Console: Top results
-* File: `results/output.txt`
-* Reports: `log.html`, `report.html`
-* Screenshots in `results/screenshots/`
+### Console
+
+* Displays top search result links
+
+### Generated Files
+
+* `results/output.txt`
+* `results/log.html`
+* `results/report.html`
+* `results/output.xml`
+
+### Screenshots
+
+* Stored inside `results/` or `Snapshot/` folder
 
 ---
 
-## ⚠️ Note
+# ⚠️ Note
 
-Google may show CAPTCHA during automation. Manual resolution may be required.
+Google may occasionally trigger CAPTCHA verification during automation.
+Manual verification may be required in such cases.
 
 ---
 
-## 👩‍💻 Author
+# 📂 Project Structure
 
-Divita Varshney
+```text
+robot-framework-automation-assignment/
+│
+├── venv/                      # Virtual environment (ignored by Git)
+│
+├── results/                   # Execution result files
+│   ├── output.txt
+│   ├── log.html
+│   ├── report.html
+│   └── output.xml
+│
+├── Snapshot/                  # Console screenshot captured(manually)
+│
+├── tests/
+│   └── google_search.robot    # Main Robot Framework test script
+│
+├── requirements.txt           # Project dependencies
+├── .gitignore                 # Ignored files/folders for Git
+└── README.md                  # Project documentation
+```
+
+---
+
+# 👩‍💻 Author
+
+**Divita Varshney**
